@@ -2,9 +2,10 @@
 get_opw_ebs_drive() {
     # nvme0/sda1 will always be the root drive, to my knowledge.
     # Here we assume a single non-root drive attached to the instance.
-    # TODO: make sure this works with non-nitro instances.
-    drive=($(lsblk -o +SERIAL | grep vol | grep -v loop | grep -v nvme0 | grep -v sda | awk '{print $1}' | head -n 1))
-    echo "$${drive}"
+    # TODO: this doesn't quite work, need to rewrite it and test on non-Nitro instances.
+    # drive=($(lsblk -o +SERIAL | grep vol | grep -v loop | grep -v nvme0 | grep -v sda | awk '{print $1}' | head -n 1))
+    # echo "$${drive}"
+    echo "/dev/nvme1n1"
 }
 
 sudo apt -y update
