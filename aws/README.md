@@ -18,14 +18,14 @@ module "opw" {
     datadog-api-key = "{DATADOG API KEY}"
     pipeline-id = "{OP PIPELINE ID}"
     pipeline-config = <<EOT
-    # Substitute your configuration here, if you have one, or use this
-    # as a starting point.
-    sources:
+# Substitute your configuration here, if you have one, or use this
+# as a starting point.
+sources:
     dd:
         type: datadog_agent
         address: 0.0.0.0:8282
         multiple_outputs: true
-    sinks:
+sinks:
     dd_metrics:
         type: datadog_metrics
         inputs:
@@ -34,6 +34,6 @@ module "opw" {
         # escaped so that DD_API_KEY isn't interpolated by its template
         # language.
         default_api_key: $${DD_API_KEY}
-    EOT
+EOT
 }
 ```
