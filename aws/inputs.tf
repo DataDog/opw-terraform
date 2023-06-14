@@ -4,6 +4,7 @@
 variable "datadog-api-key" {
   type        = string
   description = "API key to use for connecting to Datadog."
+  sensitive   = true
 }
 
 variable "datadog-site" {
@@ -78,7 +79,7 @@ variable "ami-id" {
 
 variable "assign-public-ip" {
   type        = bool
-  description = "Make the instances publically accessible. Defaults to false. Do not change this unless you have a specific reason to."
+  description = "Make the instances publicly accessible. Defaults to false. Do not change this unless you have a specific reason to."
   default     = false
 }
 
