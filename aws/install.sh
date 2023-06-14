@@ -1,4 +1,7 @@
 #!/bin/bash
+# Unless explicitly stated otherwise all files in this repository are licensed under the Apache 2 License.
+#
+# This product includes software developed at Datadog (https://www.datadoghq.com/). Copyright 2023 Datadog, Inc.
 get_opw_ebs_drive() {
     # nvme0/sda1 will always be the root drive, to my knowledge.
     # Here we assume a single non-root drive attached to the instance.
