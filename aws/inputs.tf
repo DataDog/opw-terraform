@@ -25,6 +25,11 @@ variable "pipeline-config" {
 }
 
 # TODO: remote configuration variables
+variable "environment" {
+  type        = map(string)
+  description = "Additional environment variables to seed to the instances."
+  default     = {}
+}
 
 variable "vpc-id" {
   type        = string
@@ -111,4 +116,6 @@ variable "ebs-drive-type" {
 locals {
   tcp-ports = toset([for v in var.tcp-ports : tostring(v)])
   udp-ports = toset([for v in var.udp-ports : tostring(v)])
+
+  envs = join("\n", formatlist("%s=%s", keys(var.environment), values(var.environment)))
 }

@@ -28,6 +28,7 @@ sudo cat <<"EOF" > /etc/default/observability-pipelines-worker
 DD_API_KEY=${api-key}
 DD_OP_PIPELINE_ID=${pipeline-id}
 DD_SITE=${site}
+${envs}
 EOF
 
 sudo cat <<"EOF" > /etc/observability-pipelines-worker/pipeline.yaml
