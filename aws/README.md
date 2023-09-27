@@ -10,7 +10,7 @@ To use this module, include it in your Terraform manifests like so:
 
 ```
 module "opw" {
-    source     = "https://github.com/DataDog/opw-terraform//aws"
+    source     = "git::https://github.com/DataDog/opw-terraform//aws"
     vpc-id     = "{VPC ID}"
     subnet-ids = ["{SUBNET ID 1}", "{SUBNET ID 2}"]
     region     = "{REGION}"
