@@ -102,8 +102,8 @@ variable "cross-zone-lb" {
 
 variable "ebs-drive-size-gb" {
   type        = number
-  description = "Size of EBS drives to attach to each instance. Defaults to 288GB, which is our default production recommendation."
-  default     = 288
+  description = "Size of EBS drives to attach to each instance. Defaults to 300GB, which is our default production recommendation."
+  default     = 300
 }
 
 variable "ebs-drive-type" {
