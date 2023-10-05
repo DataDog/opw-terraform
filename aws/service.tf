@@ -20,7 +20,7 @@ data "cloudinit_config" "opw" {
 
   part {
     content_type = "text/x-shellscript"
-    content = templatefile("./install.sh", {
+    content = templatefile("${path.module}/install.sh", {
       api-key         = var.datadog-api-key,
       pipeline-id     = var.pipeline-id,
       site            = var.datadog-site,
