@@ -22,6 +22,13 @@ variable "pipeline-id" {
 variable "pipeline-config" {
   type        = string
   description = "Observability Pipelines config to seed into the instances."
+  default     = ""
+}
+
+variable "remote-configuration" {
+  type        = bool
+  description = "Whether to enable remote configuration. If this is set, then `pipeline-config` is ignored."
+  default     = false
 }
 
 # TODO: remote configuration variables
@@ -118,4 +125,7 @@ locals {
   udp-ports = toset([for v in var.udp-ports : tostring(v)])
 
   envs = join("\n", formatlist("%s=%s", keys(var.environment), values(var.environment)))
+
+  # Always set the right env var for remote configuration if it's enabled.
+  rc-env = (var.remote-configuration == true) ? "DD_OP_REMOTE_CONFIGURATION_ENABLED=true\n${local.envs}" : local.envs
 }

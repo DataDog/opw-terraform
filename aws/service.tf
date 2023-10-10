@@ -25,7 +25,7 @@ data "cloudinit_config" "opw" {
       pipeline-id     = var.pipeline-id,
       site            = var.datadog-site,
       pipeline-config = var.pipeline-config,
-      envs            = local.envs,
+      envs            = local.rc-env,
     })
   }
 }
